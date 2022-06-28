@@ -1,24 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="KOTRA_GOTHIC.ttf">
+            <string>KOTRA_GOTHIC</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Coin ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CoinListVC" customModule="MyCoin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmX-dQ-G7r">
+                                <rect key="frame" x="0.0" y="30" width="414" height="131"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rF-a0-3RP">
+                                <rect key="frame" x="161" y="74" width="92" height="32"/>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7D-r4-LPf">
+                                <rect key="frame" x="20" y="136" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-QH-35g">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                        <color key="backgroundColor" red="0.76003870960631781" green="0.67293762107412081" blue="0.87812966108322144" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="신규 코인">
+                                            <fontDescription key="titleFontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEP-02-bcC">
+                                        <rect key="frame" x="192" y="0.0" width="182" height="50"/>
+                                        <color key="backgroundColor" red="0.76003870959999997" green="0.67293762109999999" blue="0.87812966110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="활성화 코인">
+                                            <fontDescription key="titleFontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MOT-BR-5rd"/>
+                                    <constraint firstItem="pEP-02-bcC" firstAttribute="height" secondItem="hpz-QH-35g" secondAttribute="height" id="j8j-2D-FdU"/>
+                                    <constraint firstItem="pEP-02-bcC" firstAttribute="width" secondItem="hpz-QH-35g" secondAttribute="width" id="onE-Jy-3Mi"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7XJ-c2-yfO">
+                                <rect key="frame" x="15" y="206" width="384" height="656"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="I7m-Sm-arz">
+                                        <rect key="frame" x="0.0" y="44.5" width="384" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7m-Sm-arz" id="Pf4-xr-f5H">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4H-NQ-onl">
+                                                    <rect key="frame" x="15" y="0.0" width="33" height="57"/>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIk-mx-HdZ">
+                                                    <rect key="frame" x="58" y="0.0" width="43" height="57"/>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-52-khu">
+                                                    <rect key="frame" x="309" y="0.0" width="55" height="57"/>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QIk-mx-HdZ" firstAttribute="leading" secondItem="b4H-NQ-onl" secondAttribute="trailing" constant="10" id="3fz-79-nTM"/>
+                                                <constraint firstItem="b4H-NQ-onl" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ICA-Sy-UMf"/>
+                                                <constraint firstAttribute="bottom" secondItem="QIk-mx-HdZ" secondAttribute="bottom" id="UUD-L1-vPh"/>
+                                                <constraint firstAttribute="bottom" secondItem="b4H-NQ-onl" secondAttribute="bottom" id="Znl-fp-PGh"/>
+                                                <constraint firstItem="QIk-mx-HdZ" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ktP-07-oYZ"/>
+                                                <constraint firstItem="b4H-NQ-onl" firstAttribute="leading" secondItem="Pf4-xr-f5H" secondAttribute="leading" constant="15" id="mzz-7c-fFk"/>
+                                                <constraint firstAttribute="trailing" secondItem="oGF-52-khu" secondAttribute="trailing" constant="20" id="opN-AF-TgZ"/>
+                                                <constraint firstItem="oGF-52-khu" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="sSm-ee-h1P"/>
+                                                <constraint firstAttribute="bottom" secondItem="oGF-52-khu" secondAttribute="bottom" id="vmm-NM-NyS"/>
+                                                <constraint firstItem="oGF-52-khu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QIk-mx-HdZ" secondAttribute="trailing" constant="208" id="vvG-ae-Eg1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i7D-r4-LPf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="051-o7-C7B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7XJ-c2-yfO" secondAttribute="trailing" constant="15" id="1Nm-b8-OgW"/>
+                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6Ef-qP-aCc"/>
+                            <constraint firstItem="1rF-a0-3RP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Clc-vz-lOi"/>
+                            <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DuK-II-qvz"/>
+                            <constraint firstItem="qmX-dQ-G7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="JCt-wg-7zw"/>
+                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="qmX-dQ-G7r" secondAttribute="bottom" constant="45" id="JI3-As-teC"/>
+                            <constraint firstItem="i7D-r4-LPf" firstAttribute="top" secondItem="1rF-a0-3RP" secondAttribute="bottom" constant="30" id="QTd-8D-yuB"/>
+                            <constraint firstItem="1rF-a0-3RP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="S9o-Cu-c60"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qmX-dQ-G7r" secondAttribute="trailing" id="ZcR-sZ-hs5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XJ-c2-yfO" secondAttribute="bottom" id="av1-lk-G21"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7D-r4-LPf" secondAttribute="trailing" constant="20" id="ek5-9d-ere"/>
+                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="i7D-r4-LPf" secondAttribute="bottom" constant="20" id="mch-80-LJm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activeCoinBtn" destination="pEP-02-bcC" id="vV9-GP-Z6O"/>
+                        <outlet property="coinListTableView" destination="7XJ-c2-yfO" id="MAO-Xa-C9m"/>
+                        <outlet property="lottieView" destination="qmX-dQ-G7r" id="HkT-Kk-gx0"/>
+                        <outlet property="newCoinBtn" destination="hpz-QH-35g" id="GtM-mF-gCB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
