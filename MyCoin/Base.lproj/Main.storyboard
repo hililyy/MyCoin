@@ -31,6 +31,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
+                                <rect key="frame" x="10" y="66" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="BsX-i2-XuZ"/>
+                                    <constraint firstAttribute="height" constant="48" id="YDl-RC-IOE"/>
+                                    <constraint firstAttribute="width" secondItem="5tJ-my-k08" secondAttribute="height" multiplier="1:1" id="t3a-qI-Q8U"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ic_collection_menu"/>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7D-r4-LPf">
                                 <rect key="frame" x="20" y="136" width="374" height="50"/>
                                 <subviews>
@@ -42,6 +52,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="신규 코인">
                                             <fontDescription key="titleFontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="touchCoinBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vta-7C-Euu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEP-02-bcC">
                                         <rect key="frame" x="192" y="0.0" width="182" height="50"/>
@@ -51,6 +64,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="활성화 코인">
                                             <fontDescription key="titleFontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="touchCoinBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lId-Of-CNd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -63,7 +79,7 @@
                                 <rect key="frame" x="15" y="206" width="384" height="656"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="I7m-Sm-arz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoinListTableViewCell" rowHeight="57" id="I7m-Sm-arz" customClass="CoinListTableViewCell" customModule="MyCoin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="384" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7m-Sm-arz" id="Pf4-xr-f5H">
@@ -71,37 +87,42 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4H-NQ-onl">
-                                                    <rect key="frame" x="15" y="0.0" width="33" height="57"/>
+                                                    <rect key="frame" x="25" y="0.0" width="33" height="57"/>
                                                     <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIk-mx-HdZ">
-                                                    <rect key="frame" x="58" y="0.0" width="43" height="57"/>
+                                                    <rect key="frame" x="83" y="0.0" width="43" height="57"/>
                                                     <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-52-khu">
-                                                    <rect key="frame" x="309" y="0.0" width="55" height="57"/>
+                                                    <rect key="frame" x="310" y="0.0" width="54" height="57"/>
                                                     <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QIk-mx-HdZ" firstAttribute="leading" secondItem="b4H-NQ-onl" secondAttribute="trailing" constant="10" id="3fz-79-nTM"/>
+                                                <constraint firstItem="QIk-mx-HdZ" firstAttribute="leading" secondItem="b4H-NQ-onl" secondAttribute="trailing" constant="25" id="3fz-79-nTM"/>
                                                 <constraint firstItem="b4H-NQ-onl" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ICA-Sy-UMf"/>
                                                 <constraint firstAttribute="bottom" secondItem="QIk-mx-HdZ" secondAttribute="bottom" id="UUD-L1-vPh"/>
                                                 <constraint firstAttribute="bottom" secondItem="b4H-NQ-onl" secondAttribute="bottom" id="Znl-fp-PGh"/>
                                                 <constraint firstItem="QIk-mx-HdZ" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ktP-07-oYZ"/>
-                                                <constraint firstItem="b4H-NQ-onl" firstAttribute="leading" secondItem="Pf4-xr-f5H" secondAttribute="leading" constant="15" id="mzz-7c-fFk"/>
+                                                <constraint firstItem="b4H-NQ-onl" firstAttribute="leading" secondItem="Pf4-xr-f5H" secondAttribute="leading" constant="25" id="mzz-7c-fFk"/>
                                                 <constraint firstAttribute="trailing" secondItem="oGF-52-khu" secondAttribute="trailing" constant="20" id="opN-AF-TgZ"/>
                                                 <constraint firstItem="oGF-52-khu" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="sSm-ee-h1P"/>
                                                 <constraint firstAttribute="bottom" secondItem="oGF-52-khu" secondAttribute="bottom" id="vmm-NM-NyS"/>
                                                 <constraint firstItem="oGF-52-khu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QIk-mx-HdZ" secondAttribute="trailing" constant="208" id="vvG-ae-Eg1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="coinName" destination="QIk-mx-HdZ" id="AYr-wH-xMI"/>
+                                            <outlet property="coinRank" destination="b4H-NQ-onl" id="XLB-Vx-4jE"/>
+                                            <outlet property="coinSymbol" destination="oGF-52-khu" id="q7b-GI-ySc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -114,6 +135,8 @@
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6Ef-qP-aCc"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Clc-vz-lOi"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DuK-II-qvz"/>
+                            <constraint firstItem="5tJ-my-k08" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H6q-xU-dmh"/>
+                            <constraint firstItem="1rF-a0-3RP" firstAttribute="centerY" secondItem="5tJ-my-k08" secondAttribute="centerY" id="IEH-r4-dw7"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="JCt-wg-7zw"/>
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="qmX-dQ-G7r" secondAttribute="bottom" constant="45" id="JI3-As-teC"/>
                             <constraint firstItem="i7D-r4-LPf" firstAttribute="top" secondItem="1rF-a0-3RP" secondAttribute="bottom" constant="30" id="QTd-8D-yuB"/>
@@ -137,6 +160,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_collection_menu" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
