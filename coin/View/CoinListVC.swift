@@ -14,6 +14,9 @@ class CoinListVC: UIViewController {
     @IBOutlet weak var newCoinBtn: UIButton!
     @IBOutlet weak var activeCoinBtn: UIButton!
     @IBOutlet weak var coinListTableView: UITableView!
+    @IBOutlet weak var reloadBtn: UIButton!
+    @IBOutlet weak var sectionView: UIView!
+    
     var newCoinBtnInfo: Bool = true
     var activeCoinBtnInfo: Bool = true
     let model = CoinListModel.model
@@ -36,20 +39,18 @@ class CoinListVC: UIViewController {
         activeCoinBtn.layer.cornerRadius = 20
         coinListTableView.delegate = self
         coinListTableView.dataSource = self
-
+        sectionView.layer.cornerRadius = 15
+        sectionView.layer.borderColor = UIColor(named: "mainColor")?.cgColor
+        sectionView.layer.borderWidth = 1.5
     }
-    
 
-    @IBAction func reloadData(_ sender: Any) {
+    @IBAction func reloadData(_ sender: UIButton) {
+        reloadBtn.alpha = 0.5
         model.reciveData()
-        print("???")
-        print(model.coinListData.count)
-        print(model.coinListData[1].id)
-        
+        coinListTableView.reloadData()
     }
     
     @IBAction func touchCoinBtn(_ sender: UIButton) {
-
         switch sender {
         case self.newCoinBtn:
             newCoinBtnInfo = !newCoinBtnInfo
@@ -63,27 +64,35 @@ class CoinListVC: UIViewController {
             break
         }
     }
-    
 }
 
 extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if model.coinListData.isEmpty {
+            return 0
+        }
+        else {return 10}
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinListTableView.dequeueReusableCell(withIdentifier: "CoinListTableViewCell", for: indexPath) as! CoinListTableViewCell
-        cell.coinName.text = "USD Coin"
-        cell.coinSymbol.text = "USDC"
-        cell.coinRank.text = "1"
+
+        guard
+              let rank = model.coinListData[indexPath.row].rank
+        else {return cell}
+        
+        cell.coinName.text = model.coinListData[indexPath.row].name
+        cell.coinSymbol.text = model.coinListData[indexPath.row].symbol
+        cell.coinRank.text = String(rank)
+        
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 57
     }
-    
-    
 }

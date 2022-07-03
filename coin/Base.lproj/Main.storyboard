@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmX-dQ-G7r">
-                                <rect key="frame" x="0.0" y="30" width="414" height="131"/>
+                                <rect key="frame" x="100" y="30" width="214" height="126"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rF-a0-3RP">
@@ -47,7 +47,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
                                 <rect key="frame" x="10" y="66" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="BsX-i2-XuZ"/>
                                     <constraint firstAttribute="height" constant="48" id="YDl-RC-IOE"/>
                                     <constraint firstAttribute="width" secondItem="5tJ-my-k08" secondAttribute="height" multiplier="1:1" id="t3a-qI-Q8U"/>
                                 </constraints>
@@ -88,8 +87,45 @@
                                     <constraint firstItem="pEP-02-bcC" firstAttribute="width" secondItem="hpz-QH-35g" secondAttribute="width" id="onE-Jy-3Mi"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0N-8s-WCR">
+                                <rect key="frame" x="15" y="196" width="384" height="46"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW9-3T-8aa">
+                                        <rect key="frame" x="13" y="0.0" width="33" height="46"/>
+                                        <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-Fd-YCJ">
+                                        <rect key="frame" x="71" y="0.0" width="43" height="46"/>
+                                        <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symbol" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2j-oc-Tj3">
+                                        <rect key="frame" x="310" y="0.0" width="54" height="46"/>
+                                        <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="tintColor" red="0.68459810889999995" green="0.38921693600000001" blue="0.87812966110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e2j-oc-Tj3" secondAttribute="trailing" constant="20" id="9Q4-p1-33Q"/>
+                                    <constraint firstAttribute="height" constant="46" id="A5j-6c-Osr"/>
+                                    <constraint firstItem="DW9-3T-8aa" firstAttribute="top" secondItem="W0N-8s-WCR" secondAttribute="top" id="Cj2-Dp-KbE"/>
+                                    <constraint firstItem="DW9-3T-8aa" firstAttribute="leading" secondItem="W0N-8s-WCR" secondAttribute="leading" constant="13" id="LyI-u2-ePi"/>
+                                    <constraint firstItem="e2j-oc-Tj3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oOz-Fd-YCJ" secondAttribute="trailing" constant="8" symbolic="YES" id="PTO-Bu-k9i"/>
+                                    <constraint firstAttribute="bottom" secondItem="oOz-Fd-YCJ" secondAttribute="bottom" id="Zy0-vs-U7t"/>
+                                    <constraint firstItem="oOz-Fd-YCJ" firstAttribute="leading" secondItem="DW9-3T-8aa" secondAttribute="trailing" constant="25" id="afL-FQ-2Jo"/>
+                                    <constraint firstAttribute="bottom" secondItem="e2j-oc-Tj3" secondAttribute="bottom" id="bxU-cx-C1V"/>
+                                    <constraint firstAttribute="bottom" secondItem="DW9-3T-8aa" secondAttribute="bottom" id="cb3-S4-tQu"/>
+                                    <constraint firstItem="oOz-Fd-YCJ" firstAttribute="top" secondItem="W0N-8s-WCR" secondAttribute="top" id="kKe-9F-Kg0"/>
+                                    <constraint firstItem="e2j-oc-Tj3" firstAttribute="top" secondItem="W0N-8s-WCR" secondAttribute="top" id="nbV-hh-abO"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7XJ-c2-yfO">
-                                <rect key="frame" x="15" y="206" width="384" height="656"/>
+                                <rect key="frame" x="15" y="247" width="384" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoinListTableViewCell" rowHeight="57" id="I7m-Sm-arz" customClass="CoinListTableViewCell" customModule="coin" customModuleProvider="target">
@@ -111,7 +147,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-52-khu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="symbol" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-52-khu">
                                                     <rect key="frame" x="310" y="0.0" width="54" height="57"/>
                                                     <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -144,22 +180,26 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i7D-r4-LPf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="051-o7-C7B"/>
+                            <constraint firstItem="W0N-8s-WCR" firstAttribute="top" secondItem="i7D-r4-LPf" secondAttribute="bottom" constant="10" id="09r-u2-Ifu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7XJ-c2-yfO" secondAttribute="trailing" constant="15" id="1Nm-b8-OgW"/>
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6Ef-qP-aCc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W0N-8s-WCR" secondAttribute="trailing" constant="15" id="CdU-oZ-zRP"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Clc-vz-lOi"/>
-                            <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DuK-II-qvz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C0n-2h-xeI" secondAttribute="trailing" constant="10" id="Fj6-qm-5NJ"/>
                             <constraint firstItem="5tJ-my-k08" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H6q-xU-dmh"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerY" secondItem="5tJ-my-k08" secondAttribute="centerY" id="IEH-r4-dw7"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="JCt-wg-7zw"/>
-                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="qmX-dQ-G7r" secondAttribute="bottom" constant="45" id="JI3-As-teC"/>
                             <constraint firstItem="i7D-r4-LPf" firstAttribute="top" secondItem="1rF-a0-3RP" secondAttribute="bottom" constant="30" id="QTd-8D-yuB"/>
                             <constraint firstItem="C0n-2h-xeI" firstAttribute="centerY" secondItem="1rF-a0-3RP" secondAttribute="centerY" id="R5w-SU-v9d"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="S9o-Cu-c60"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qmX-dQ-G7r" secondAttribute="trailing" id="ZcR-sZ-hs5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XJ-c2-yfO" secondAttribute="bottom" id="av1-lk-G21"/>
+                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="W0N-8s-WCR" secondAttribute="bottom" constant="5" id="cGV-kJ-0k2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7D-r4-LPf" secondAttribute="trailing" constant="20" id="ek5-9d-ere"/>
-                            <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="i7D-r4-LPf" secondAttribute="bottom" constant="20" id="mch-80-LJm"/>
+                            <constraint firstItem="W0N-8s-WCR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hFZ-VV-5dS"/>
+                            <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="l0x-BA-HGj"/>
+                            <constraint firstItem="qmX-dQ-G7r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l56-UJ-Bp0"/>
+                            <constraint firstItem="W0N-8s-WCR" firstAttribute="top" secondItem="qmX-dQ-G7r" secondAttribute="bottom" constant="40" id="tNe-zh-idZ"/>
+                            <constraint firstItem="W0N-8s-WCR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wuw-jE-gSU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -167,6 +207,8 @@
                         <outlet property="coinListTableView" destination="7XJ-c2-yfO" id="MAO-Xa-C9m"/>
                         <outlet property="lottieView" destination="qmX-dQ-G7r" id="HkT-Kk-gx0"/>
                         <outlet property="newCoinBtn" destination="hpz-QH-35g" id="GtM-mF-gCB"/>
+                        <outlet property="reloadBtn" destination="C0n-2h-xeI" id="bwe-hf-uNI"/>
+                        <outlet property="sectionView" destination="W0N-8s-WCR" id="nwy-5W-u7p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
