@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 
 class CoinListVC: UIViewController {
-
+    
     @IBOutlet weak var lottieView: UIView!
     @IBOutlet weak var newCoinBtn: UIButton!
     @IBOutlet weak var activeCoinBtn: UIButton!
@@ -19,6 +19,7 @@ class CoinListVC: UIViewController {
     
     var newCoinBtnInfo: Bool = true
     var activeCoinBtnInfo: Bool = true
+    
     let model = CoinListModel.model
     
     override func viewDidLoad() {
@@ -42,12 +43,17 @@ class CoinListVC: UIViewController {
         sectionView.layer.cornerRadius = 15
         sectionView.layer.borderColor = UIColor(named: "mainColor")?.cgColor
         sectionView.layer.borderWidth = 1.5
+        
+        newCoinBtn.isEnabled = false
+        activeCoinBtn.isEnabled = false
     }
-
+    
     @IBAction func reloadData(_ sender: UIButton) {
         reloadBtn.alpha = 0.5
         model.reciveData()
         coinListTableView.reloadData()
+        newCoinBtn.isEnabled = true
+        activeCoinBtn.isEnabled = true
     }
     
     @IBAction func touchCoinBtn(_ sender: UIButton) {
@@ -55,14 +61,17 @@ class CoinListVC: UIViewController {
         case self.newCoinBtn:
             newCoinBtnInfo = !newCoinBtnInfo
             newCoinBtn.alpha = newCoinBtnInfo == true ? 1.0 : 0.5
-
+            
         case self.activeCoinBtn:
             activeCoinBtnInfo = !activeCoinBtnInfo
             activeCoinBtn.alpha = activeCoinBtnInfo == true ? 1.0 : 0.5
-
+            
         default:
             break
         }
+        coinListTableView.reloadData()
+        print("newCoinBtnInfo: \(newCoinBtnInfo)")
+        print("activeCoinBtnInfo: \(activeCoinBtnInfo)")
     }
 }
 
@@ -75,15 +84,22 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
         if model.coinListData.isEmpty {
             return 0
         }
-        else {return 10}
+        else {return 5000}
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinListTableView.dequeueReusableCell(withIdentifier: "CoinListTableViewCell", for: indexPath) as! CoinListTableViewCell
-
+        
         guard
-              let rank = model.coinListData[indexPath.row].rank
+            let rank = model.coinListData[indexPath.row].rank
         else {return cell}
+        
+        if model.coinListData[indexPath.row].is_active == true {
+            cell.activeIcon.isHidden = false
+        }
+        if model.coinListData[indexPath.row].is_new == true {
+            cell.newIcon.isHidden = false
+        }
         
         cell.coinName.text = model.coinListData[indexPath.row].name
         cell.coinSymbol.text = model.coinListData[indexPath.row].symbol
@@ -93,6 +109,36 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 57
+        if model.coinListData[indexPath.row].type == "coin" {
+            if self.activeCoinBtnInfo == true && self.newCoinBtnInfo == true {
+                if model.coinListData[indexPath.row].is_active == true || model.coinListData[indexPath.row].is_new == true {
+                    return 57
+                } else {
+                    return 0
+                }
+            } else if self.activeCoinBtnInfo == true && self.newCoinBtnInfo == false {
+                if model.coinListData[indexPath.row].is_active == true && model.coinListData[indexPath.row].is_new == false {
+                    return 57
+                } else {
+                    return 0
+                }
+            } else if self.activeCoinBtnInfo == false && self.newCoinBtnInfo == true {
+                if model.coinListData[indexPath.row].is_active == false && model.coinListData[indexPath.row].is_new == true {
+                    return 57
+                } else {
+                    return 0
+                }
+            } else if self.activeCoinBtnInfo == false && self.newCoinBtnInfo == false {
+                if model.coinListData[indexPath.row].is_active == false && model.coinListData[indexPath.row].is_new == false {
+                    return 57
+                } else {
+                    return 0
+                }
+            } else {
+                return 0
+            }
+        } else {
+            return 0
+        }
     }
 }

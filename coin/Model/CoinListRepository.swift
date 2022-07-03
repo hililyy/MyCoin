@@ -19,9 +19,6 @@ class CoinListRepository {
                 switch (response.result) {
                 case .success:
                     self.temp = try decoder.decode([CoinListEntity].self, from: response.data!)
-                    print(self.temp.count)
-                    print(self.temp[1])
-                    print("id:\(self.temp[1].id)")
                 case .failure(let error):
                     print("errorCode: \(error._code)")
                     print("errorDescription: \(error.errorDescription!)")

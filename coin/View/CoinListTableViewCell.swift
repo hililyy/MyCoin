@@ -11,15 +11,18 @@ class CoinListTableViewCell: UITableViewCell {
     @IBOutlet weak var coinRank: UILabel!
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var coinSymbol: UILabel!
+    @IBOutlet weak var newIcon: UIImageView!
+    @IBOutlet weak var activeIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        newIcon.isHidden = true
+        activeIcon.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
