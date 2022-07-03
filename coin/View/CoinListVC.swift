@@ -19,6 +19,7 @@ class CoinListVC: UIViewController {
     
     var newCoinBtnInfo: Bool = true
     var activeCoinBtnInfo: Bool = true
+    var tempIdList: [String] = ["btc-bitcoin","usdc-usd-coin","bnb-binance-coin"]
     
     let model = CoinListModel.model
     
@@ -55,7 +56,7 @@ class CoinListVC: UIViewController {
         newCoinBtn.isEnabled = true
         activeCoinBtn.isEnabled = true
     }
-    
+
     @IBAction func touchCoinBtn(_ sender: UIButton) {
         switch sender {
         case self.newCoinBtn:
@@ -100,7 +101,9 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
         if model.coinListData[indexPath.row].is_new == true {
             cell.newIcon.isHidden = false
         }
-        
+        if tempIdList.contains(model.coinListData[indexPath.row].id ?? "") {
+            cell.heartBtn.setImage(UIImage(named: "ic_full_heart"), for: .normal)
+        }
         cell.coinName.text = model.coinListData[indexPath.row].name
         cell.coinSymbol.text = model.coinListData[indexPath.row].symbol
         cell.coinRank.text = String(rank)
