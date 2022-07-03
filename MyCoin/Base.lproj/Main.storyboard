@@ -31,6 +31,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-2h-xeI">
+                                <rect key="frame" x="356" y="66" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C0n-2h-xeI" secondAttribute="height" multiplier="1:1" id="03n-fe-2IS"/>
+                                    <constraint firstAttribute="width" constant="48" id="fmc-tX-BQB"/>
+                                    <constraint firstAttribute="height" constant="48" id="moW-TO-u76"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ic_reload"/>
+                                <connections>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5u-Km-3ix"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
                                 <rect key="frame" x="10" y="66" width="48" height="48"/>
                                 <constraints>
@@ -135,11 +148,13 @@
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6Ef-qP-aCc"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Clc-vz-lOi"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DuK-II-qvz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C0n-2h-xeI" secondAttribute="trailing" constant="10" id="Fj6-qm-5NJ"/>
                             <constraint firstItem="5tJ-my-k08" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H6q-xU-dmh"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerY" secondItem="5tJ-my-k08" secondAttribute="centerY" id="IEH-r4-dw7"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="JCt-wg-7zw"/>
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="qmX-dQ-G7r" secondAttribute="bottom" constant="45" id="JI3-As-teC"/>
                             <constraint firstItem="i7D-r4-LPf" firstAttribute="top" secondItem="1rF-a0-3RP" secondAttribute="bottom" constant="30" id="QTd-8D-yuB"/>
+                            <constraint firstItem="C0n-2h-xeI" firstAttribute="centerY" secondItem="1rF-a0-3RP" secondAttribute="centerY" id="R5w-SU-v9d"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="S9o-Cu-c60"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qmX-dQ-G7r" secondAttribute="trailing" id="ZcR-sZ-hs5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XJ-c2-yfO" secondAttribute="bottom" id="av1-lk-G21"/>
@@ -161,6 +176,7 @@
     </scenes>
     <resources>
         <image name="ic_collection_menu" width="24" height="24"/>
+        <image name="ic_reload" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
