@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				2AACEA6F2871C68300EC0125 /* CoinListVC.swift */,
-				2AACEA7428721DFC00EC0125 /* CoinListCollectionVC.swift */,
 				2AACEA6D2871C67A00EC0125 /* CoinListTableViewCell.swift */,
+				2AACEA7428721DFC00EC0125 /* CoinListCollectionVC.swift */,
 				2AACEA762872210300EC0125 /* CoinListCollectionViewCell.swift */,
 			);
 			path = View;

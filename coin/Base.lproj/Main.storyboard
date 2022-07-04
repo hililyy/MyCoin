@@ -45,7 +45,7 @@
                                     <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5u-Km-3ix"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
                                 <rect key="frame" x="10" y="66" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="YDl-RC-IOE"/>
@@ -149,7 +149,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="symbol" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-52-khu">
-                                                    <rect key="frame" x="161" y="0.0" width="176" height="57"/>
+                                                    <rect key="frame" x="161" y="0.0" width="208" height="57"/>
                                                     <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -173,29 +173,16 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-OQ-E54">
-                                                    <rect key="frame" x="347" y="10" width="37" height="37"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="ODu-Yk-LWc"/>
-                                                        <constraint firstAttribute="width" secondItem="d3Y-OQ-E54" secondAttribute="height" multiplier="1:1" id="Z0q-2n-JsJ"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="ic_empty_heart"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="oGF-52-khu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HxT-FB-pdo" secondAttribute="trailing" constant="8" symbolic="YES" id="3PR-xJ-Hix"/>
                                                 <constraint firstItem="QIk-mx-HdZ" firstAttribute="leading" secondItem="b4H-NQ-onl" secondAttribute="trailing" constant="25" id="3fz-79-nTM"/>
                                                 <constraint firstItem="HxT-FB-pdo" firstAttribute="leading" secondItem="QIk-mx-HdZ" secondAttribute="trailing" constant="3" id="9Ag-RT-g5e"/>
                                                 <constraint firstItem="b4H-NQ-onl" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ICA-Sy-UMf"/>
-                                                <constraint firstItem="d3Y-OQ-E54" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" constant="10" id="RPn-VK-oXv"/>
+                                                <constraint firstAttribute="trailing" secondItem="oGF-52-khu" secondAttribute="trailing" constant="15" id="OXj-s4-mx2"/>
                                                 <constraint firstItem="HxT-FB-pdo" firstAttribute="centerY" secondItem="Pf4-xr-f5H" secondAttribute="centerY" id="URt-Jf-VyF"/>
                                                 <constraint firstAttribute="bottom" secondItem="QIk-mx-HdZ" secondAttribute="bottom" id="UUD-L1-vPh"/>
-                                                <constraint firstItem="d3Y-OQ-E54" firstAttribute="leading" secondItem="oGF-52-khu" secondAttribute="trailing" constant="10" id="Um0-Y8-o5T"/>
                                                 <constraint firstAttribute="bottom" secondItem="b4H-NQ-onl" secondAttribute="bottom" id="Znl-fp-PGh"/>
-                                                <constraint firstAttribute="trailing" secondItem="d3Y-OQ-E54" secondAttribute="trailing" id="igv-z8-0bh"/>
-                                                <constraint firstItem="d3Y-OQ-E54" firstAttribute="width" secondItem="d3Y-OQ-E54" secondAttribute="height" multiplier="1:1" id="j3x-vD-RT6"/>
-                                                <constraint firstAttribute="bottom" secondItem="d3Y-OQ-E54" secondAttribute="bottom" constant="10" id="jnu-ca-4kE"/>
                                                 <constraint firstItem="QIk-mx-HdZ" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="ktP-07-oYZ"/>
                                                 <constraint firstItem="b4H-NQ-onl" firstAttribute="leading" secondItem="Pf4-xr-f5H" secondAttribute="leading" constant="25" id="mzz-7c-fFk"/>
                                                 <constraint firstItem="oGF-52-khu" firstAttribute="top" secondItem="Pf4-xr-f5H" secondAttribute="top" id="sSm-ee-h1P"/>
@@ -207,7 +194,6 @@
                                             <outlet property="coinName" destination="QIk-mx-HdZ" id="AYr-wH-xMI"/>
                                             <outlet property="coinRank" destination="b4H-NQ-onl" id="XLB-Vx-4jE"/>
                                             <outlet property="coinSymbol" destination="oGF-52-khu" id="q7b-GI-ySc"/>
-                                            <outlet property="heartBtn" destination="d3Y-OQ-E54" id="uwB-b3-lYJ"/>
                                             <outlet property="newIcon" destination="6pY-3Z-J4m" id="CTa-Q7-7sU"/>
                                         </connections>
                                     </tableViewCell>
@@ -443,7 +429,6 @@
     <resources>
         <image name="ic_active" width="24" height="24"/>
         <image name="ic_collection_menu" width="24" height="24"/>
-        <image name="ic_empty_heart" width="36" height="36"/>
         <image name="ic_new" width="24" height="24"/>
         <image name="ic_reload" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

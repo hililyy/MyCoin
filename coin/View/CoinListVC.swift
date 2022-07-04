@@ -17,16 +17,32 @@ class CoinListVC: UIViewController {
     @IBOutlet weak var reloadBtn: UIButton!
     @IBOutlet weak var sectionView: UIView!
     
-    var newCoinBtnInfo: Bool = true
-    var activeCoinBtnInfo: Bool = true
-    var tempIdList: [String] = ["btc-bitcoin","usdc-usd-coin","bnb-binance-coin"]
-    
-    let model = CoinListModel.model
+    let model = CoinListViewModel.viewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model.apiRequest()
-        
+        lottieInit()
+        btnBorderInit()
+        initalize()
+        coinListTableView.delegate = self
+        coinListTableView.dataSource = self
+    }
+    
+    func btnBorderInit() {
+        newCoinBtn.layer.cornerRadius = 20
+        activeCoinBtn.layer.cornerRadius = 20
+        sectionView.layer.cornerRadius = 15
+        sectionView.layer.borderColor = UIColor(named: "mainColor")?.cgColor
+        sectionView.layer.borderWidth = 1.5
+    }
+    
+    func initalize() {
+        newCoinBtn.isEnabled = false
+        activeCoinBtn.isEnabled = false
+    }
+    
+    func lottieInit() {
         let animationView = AnimationView(name: "coin")
         self.view.addSubview(animationView)
         
@@ -36,17 +52,6 @@ class CoinListVC: UIViewController {
         animationView.animationSpeed = 0.7
         animationView.play()
         animationView.loopMode = .loop
-        
-        newCoinBtn.layer.cornerRadius = 20
-        activeCoinBtn.layer.cornerRadius = 20
-        coinListTableView.delegate = self
-        coinListTableView.dataSource = self
-        sectionView.layer.cornerRadius = 15
-        sectionView.layer.borderColor = UIColor(named: "mainColor")?.cgColor
-        sectionView.layer.borderWidth = 1.5
-        
-        newCoinBtn.isEnabled = false
-        activeCoinBtn.isEnabled = false
     }
     
     @IBAction func reloadData(_ sender: UIButton) {
@@ -60,19 +65,17 @@ class CoinListVC: UIViewController {
     @IBAction func touchCoinBtn(_ sender: UIButton) {
         switch sender {
         case self.newCoinBtn:
-            newCoinBtnInfo = !newCoinBtnInfo
-            newCoinBtn.alpha = newCoinBtnInfo == true ? 1.0 : 0.5
+            model.newCoinBtnInfo = !model.newCoinBtnInfo
+            newCoinBtn.alpha = model.newCoinBtnInfo == true ? 1.0 : 0.5
             
         case self.activeCoinBtn:
-            activeCoinBtnInfo = !activeCoinBtnInfo
-            activeCoinBtn.alpha = activeCoinBtnInfo == true ? 1.0 : 0.5
+            model.activeCoinBtnInfo = !model.activeCoinBtnInfo
+            activeCoinBtn.alpha = model.activeCoinBtnInfo == true ? 1.0 : 0.5
             
         default:
             break
         }
         coinListTableView.reloadData()
-        print("newCoinBtnInfo: \(newCoinBtnInfo)")
-        print("activeCoinBtnInfo: \(activeCoinBtnInfo)")
     }
 }
 
@@ -82,7 +85,7 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if model.coinListData.isEmpty {
+        if model.getCoinListData().isEmpty {
             return 0
         }
         else {return 5000}
@@ -92,56 +95,24 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = coinListTableView.dequeueReusableCell(withIdentifier: "CoinListTableViewCell", for: indexPath) as! CoinListTableViewCell
         
         guard
-            let rank = model.coinListData[indexPath.row].rank
+            let rank = model.getCoinListData()[indexPath.row].rank
         else {return cell}
         
-        if model.coinListData[indexPath.row].is_active == true {
+        if model.getCoinListData()[indexPath.row].is_active == true {
             cell.activeIcon.isHidden = false
         }
-        if model.coinListData[indexPath.row].is_new == true {
+        if model.getCoinListData()[indexPath.row].is_new == true {
             cell.newIcon.isHidden = false
         }
-        if tempIdList.contains(model.coinListData[indexPath.row].id ?? "") {
-            cell.heartBtn.setImage(UIImage(named: "ic_full_heart"), for: .normal)
-        }
-        cell.coinName.text = model.coinListData[indexPath.row].name
-        cell.coinSymbol.text = model.coinListData[indexPath.row].symbol
+
+        cell.coinName.text = model.getCoinListData()[indexPath.row].name
+        cell.coinSymbol.text = model.getCoinListData()[indexPath.row].symbol
         cell.coinRank.text = String(rank)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if model.coinListData[indexPath.row].type == "coin" {
-            if self.activeCoinBtnInfo == true && self.newCoinBtnInfo == true {
-                if model.coinListData[indexPath.row].is_active == true || model.coinListData[indexPath.row].is_new == true {
-                    return 57
-                } else {
-                    return 0
-                }
-            } else if self.activeCoinBtnInfo == true && self.newCoinBtnInfo == false {
-                if model.coinListData[indexPath.row].is_active == true && model.coinListData[indexPath.row].is_new == false {
-                    return 57
-                } else {
-                    return 0
-                }
-            } else if self.activeCoinBtnInfo == false && self.newCoinBtnInfo == true {
-                if model.coinListData[indexPath.row].is_active == false && model.coinListData[indexPath.row].is_new == true {
-                    return 57
-                } else {
-                    return 0
-                }
-            } else if self.activeCoinBtnInfo == false && self.newCoinBtnInfo == false {
-                if model.coinListData[indexPath.row].is_active == false && model.coinListData[indexPath.row].is_new == false {
-                    return 57
-                } else {
-                    return 0
-                }
-            } else {
-                return 0
-            }
-        } else {
-            return 0
-        }
+        return self.model.settingCoinCategory(indexPath: indexPath.row)
     }
 }

@@ -22,5 +22,4 @@ class CoinListModel {
     func reciveData() {
         self.coinListData = repository.passData()
     }
-
 }

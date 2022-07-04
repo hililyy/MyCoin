@@ -13,7 +13,6 @@ class CoinListTableViewCell: UITableViewCell {
     @IBOutlet weak var coinSymbol: UILabel!
     @IBOutlet weak var newIcon: UIImageView!
     @IBOutlet weak var activeIcon: UIImageView!
-    @IBOutlet weak var heartBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
