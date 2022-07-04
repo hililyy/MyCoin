@@ -1,3 +1,7 @@
+# 🪙 My Coin (코인 정보 프로그램)
+API적용 연습을 위한 코인 정보 프로그램 입니다.
+<br></br>
+
 # 👉🏻 적용기술
 - MVVM 적용하기
 - 기능들이 프로토콜에서 동작하도록 (추상화)
@@ -9,6 +13,7 @@
 
 - Lottie 사용해보기
 - ~~Collection View 사용해보기~~
+<br></br>
 
 # 👉🏻 적용사항
 - 사용할 API → [https://api.coinpaprika.com/v1/coins](https://api.coinpaprika.com/v1/coins)
@@ -24,6 +29,7 @@
     - is_new 버튼 활성화 시 true인 데이터만 표시
     - is_active 버튼 활성화 시 true인 데이터만 표시
     - 만약 두 버튼 모두 활성화 시 rank번호에 따른 번호 순서로 나타냄
+<br></br>
 
 # 👉🏻 동작화면
 ## 1. 기본 동작
