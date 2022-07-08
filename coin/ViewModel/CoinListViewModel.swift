@@ -14,17 +14,10 @@ class CoinListViewModel {
     var activeCoinBtnInfo: Bool = true
     let model = CoinListModel.model
     
-    func apiRequest() {
-        model.apiRequest()
-    }
-    
-    func reciveData() {
-        model.reciveData()
-    }
-    
     func getCoinListData() -> [CoinListEntity] {
         return model.coinListData
     }
+    
     func settingCoinCategory(indexPath: Int) -> CGFloat {
         if model.coinListData[indexPath].type == "coin" {
             if self.activeCoinBtnInfo == true && self.newCoinBtnInfo == true {
@@ -58,5 +51,14 @@ class CoinListViewModel {
             return 0
         }
     }
+}
+
+extension CoinListViewModel: CoinListApiRequest {
+    func requestCoinData() {
+        model.requestCoinData()
+    }
     
+    func reciveCoinData() {
+        model.reciveCoinData()
+    }
 }

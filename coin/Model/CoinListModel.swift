@@ -12,14 +12,16 @@ class CoinListModel {
     static let model = CoinListModel()
     var coinListData: [CoinListEntity] = []
     var repository = CoinListRepository()
-    
-    func apiRequest() {
+}
+
+extension CoinListModel: CoinListApiRequest {
+    func requestCoinData() {
         DispatchQueue.global().sync {
             self.repository.apiRequest()
         }
     }
     
-    func reciveData() {
+    func reciveCoinData() {
         self.coinListData = repository.passData()
     }
 }

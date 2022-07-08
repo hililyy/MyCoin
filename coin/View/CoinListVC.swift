@@ -21,7 +21,7 @@ class CoinListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.apiRequest()
+        model.requestCoinData()
         lottieInit()
         btnBorderInit()
         initalize()
@@ -55,8 +55,7 @@ class CoinListVC: UIViewController {
     }
     
     @IBAction func reloadData(_ sender: UIButton) {
-        reloadBtn.alpha = 0.5
-        model.reciveData()
+        model.reciveCoinData()
         coinListTableView.reloadData()
         newCoinBtn.isEnabled = true
         activeCoinBtn.isEnabled = true
@@ -88,23 +87,20 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
         if model.getCoinListData().isEmpty {
             return 0
         }
-        else {return 5000}
+        else { return 5000 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinListTableView.dequeueReusableCell(withIdentifier: "CoinListTableViewCell", for: indexPath) as! CoinListTableViewCell
-        
-        guard
-            let rank = model.getCoinListData()[indexPath.row].rank
-        else {return cell}
-        
+    
         if model.getCoinListData()[indexPath.row].is_active == true {
             cell.activeIcon.isHidden = false
         }
         if model.getCoinListData()[indexPath.row].is_new == true {
             cell.newIcon.isHidden = false
         }
-
+        
+        guard let rank = model.getCoinListData()[indexPath.row].rank else {return cell}
         cell.coinName.text = model.getCoinListData()[indexPath.row].name
         cell.coinSymbol.text = model.getCoinListData()[indexPath.row].symbol
         cell.coinRank.text = String(rank)

@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-class CoinListRepository {
-    let URL = "https://api.coinpaprika.com/v1/coins"
+class CoinListRepository: CoinListRepo {
+    let URL = "\(getUrl())\(ApiPath.coin_list.rawValue)"
     var repoData: [CoinListEntity] = []
     
     func apiRequest() {
@@ -19,6 +19,7 @@ class CoinListRepository {
                 switch (response.result) {
                 case .success:
                     self.repoData = try decoder.decode([CoinListEntity].self, from: response.data!)
+                    
                 case .failure(let error):
                     print("errorCode: \(error._code)")
                     print("errorDescription: \(error.errorDescription!)")
