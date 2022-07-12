@@ -7,11 +7,11 @@
 
 import Foundation
 
-let URL = "https://api.coinpaprika.com/"
-
+let baseURL = "https://api.coinpaprika.com/"
 func getUrl() -> String {
-    return URL
+    return baseURL
 }
 enum ApiPath: String {
-    case coin_list = "v1/coins"
+    case coin_list = "v1/coins/"
 }
+

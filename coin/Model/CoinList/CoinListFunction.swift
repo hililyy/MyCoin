@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol CoinListApiRequest {
     func requestCoinData()
@@ -14,5 +15,6 @@ protocol CoinListApiRequest {
 
 protocol CoinListRepo {
     func apiRequest()
+//    func apiRequest() -> Single<[CoinListEntity]>
     func passData() -> [CoinListEntity]
 }

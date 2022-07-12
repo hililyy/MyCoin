@@ -1,25 +1,28 @@
 //
-//  CoinListRepository.swift
-//  MyCoin
+//  CoinDetailRepository.swift
+//  coin
 //
-//  Created by 강조은 on 2022/06/28.
+//  Created by 강조은 on 2022/07/12.
 //
 
 import Foundation
 import Alamofire
 
-class CoinListRepository: CoinListRepo {
-    let URL = "\(getUrl())\(ApiPath.coin_list.rawValue)"
-    var repoData: [CoinListEntity] = []
+class CoinDetailRepository: CoinDetailRepo {
     
-    func apiRequest() {
+    var repoData: CoinDetailEntity!
+    
+    func apiRequest(selectedIndex: Int) {
+        let URL = "\(getUrl())\(ApiPath.coin_list.rawValue)\(selectedIndex+1)"
+        print(URL)
+        
         AF.request(URL, method: .get).responseJSON() { response in
             do {
                 let decoder = JSONDecoder()
                 switch (response.result) {
                 case .success:
-                    self.repoData = try decoder.decode([CoinListEntity].self, from: response.data!)
-                    
+                    self.repoData = try decoder.decode(CoinDetailEntity.self, from: response.data!)
+                    print(self.repoData)
                 case .failure(let error):
                     print("errorCode: \(error._code)")
                     print("errorDescription: \(error.errorDescription!)")
@@ -30,7 +33,7 @@ class CoinListRepository: CoinListRepo {
         }.resume()
     }
     
-    func passData() -> [CoinListEntity] {
-        return repoData
+    func passData() -> CoinDetailEntity {
+        return repoData!
     }
 }

@@ -35,7 +35,6 @@
                                 <rect key="frame" x="356" y="66" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C0n-2h-xeI" secondAttribute="height" multiplier="1:1" id="03n-fe-2IS"/>
-                                    <constraint firstAttribute="width" constant="48" id="fmc-tX-BQB"/>
                                     <constraint firstAttribute="height" constant="48" id="moW-TO-u76"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -43,15 +42,6 @@
                                 <connections>
                                     <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5u-Km-3ix"/>
                                 </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-my-k08">
-                                <rect key="frame" x="10" y="66" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="YDl-RC-IOE"/>
-                                    <constraint firstAttribute="width" secondItem="5tJ-my-k08" secondAttribute="height" multiplier="1:1" id="t3a-qI-Q8U"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ic_collection_menu"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7D-r4-LPf">
                                 <rect key="frame" x="20" y="136" width="374" height="50"/>
@@ -209,8 +199,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W0N-8s-WCR" secondAttribute="trailing" constant="15" id="CdU-oZ-zRP"/>
                             <constraint firstItem="1rF-a0-3RP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Clc-vz-lOi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C0n-2h-xeI" secondAttribute="trailing" constant="10" id="Fj6-qm-5NJ"/>
-                            <constraint firstItem="5tJ-my-k08" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H6q-xU-dmh"/>
-                            <constraint firstItem="1rF-a0-3RP" firstAttribute="centerY" secondItem="5tJ-my-k08" secondAttribute="centerY" id="IEH-r4-dw7"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="JCt-wg-7zw"/>
                             <constraint firstItem="i7D-r4-LPf" firstAttribute="top" secondItem="1rF-a0-3RP" secondAttribute="bottom" constant="30" id="QTd-8D-yuB"/>
                             <constraint firstItem="C0n-2h-xeI" firstAttribute="centerY" secondItem="1rF-a0-3RP" secondAttribute="centerY" id="R5w-SU-v9d"/>
@@ -218,6 +206,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XJ-c2-yfO" secondAttribute="bottom" id="av1-lk-G21"/>
                             <constraint firstItem="7XJ-c2-yfO" firstAttribute="top" secondItem="W0N-8s-WCR" secondAttribute="bottom" constant="5" id="cGV-kJ-0k2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i7D-r4-LPf" secondAttribute="trailing" constant="20" id="ek5-9d-ere"/>
+                            <constraint firstItem="C0n-2h-xeI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmX-dQ-G7r" secondAttribute="trailing" constant="8" symbolic="YES" id="fFP-wR-4nM"/>
                             <constraint firstItem="W0N-8s-WCR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hFZ-VV-5dS"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="l0x-BA-HGj"/>
                             <constraint firstItem="qmX-dQ-G7r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l56-UJ-Bp0"/>
@@ -238,12 +227,478 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
+        <!--Coin DetailVC-->
+        <scene sceneID="nzJ-H4-NOS">
+            <objects>
+                <viewController storyboardIdentifier="CoinDetailVC" id="4hc-i2-pYW" customClass="CoinDetailVC" customModule="coin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EoH-Hn-ZrH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-wD-pSC">
+                                <rect key="frame" x="15" y="450" width="384" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="hhE-3m-iyQ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinDetailTagsTableViewCell" rowHeight="88" id="6uK-QL-eSa" customClass="CoinDetailTagsTableViewCell" customModule="coin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="384" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6uK-QL-eSa" id="2gx-r3-Y9L">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-Wd-e8O">
+                                                    <rect key="frame" x="10" y="10" width="28" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="PHR-dW-LBy"/>
+                                                        <constraint firstAttribute="width" constant="28" id="g9D-QU-cwF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFa-Go-35x">
+                                                    <rect key="frame" x="48" y="10" width="130" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="kBc-Fg-UMo"/>
+                                                        <constraint firstAttribute="height" constant="25" id="rgM-My-z50"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAR-LB-eyc">
+                                                    <rect key="frame" x="135" y="42" width="43" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="dJn-8T-lIW"/>
+                                                        <constraint firstAttribute="width" constant="43" id="kkm-dm-B3c"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13j-Wh-sDo">
+                                                    <rect key="frame" x="270" y="10" width="94" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="x4r-Ms-QlT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="coin_counter : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JC-fu-MK5">
+                                                    <rect key="frame" x="10" y="42" width="115" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="RXX-e4-7qv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="ico_counter : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTO-zb-3uE">
+                                                    <rect key="frame" x="203" y="42" width="106.5" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="gnz-He-3rE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekL-6D-EC7">
+                                                    <rect key="frame" x="203" y="10" width="57" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="HLb-C8-k2v"/>
+                                                        <constraint firstAttribute="width" constant="57" id="nLz-e0-l5j"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-7z-COo">
+                                                    <rect key="frame" x="319.5" y="42" width="44.5" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="OIV-eP-nfd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qa6-7z-COo" secondAttribute="trailing" id="1cL-ul-EP1"/>
+                                                <constraint firstItem="gFa-Go-35x" firstAttribute="top" secondItem="fkY-Wd-e8O" secondAttribute="top" id="2bW-oZ-qfA"/>
+                                                <constraint firstItem="fkY-Wd-e8O" firstAttribute="top" secondItem="2gx-r3-Y9L" secondAttribute="top" constant="10" id="2rz-fs-N2A"/>
+                                                <constraint firstItem="gFa-Go-35x" firstAttribute="leading" secondItem="fkY-Wd-e8O" secondAttribute="trailing" constant="10" id="7YH-5V-RtB"/>
+                                                <constraint firstItem="NAR-LB-eyc" firstAttribute="leading" secondItem="4JC-fu-MK5" secondAttribute="trailing" constant="10" id="7dy-Lg-Rxq"/>
+                                                <constraint firstItem="Qa6-7z-COo" firstAttribute="baseline" secondItem="GTO-zb-3uE" secondAttribute="baseline" id="8sh-qQ-HPz"/>
+                                                <constraint firstItem="NAR-LB-eyc" firstAttribute="top" secondItem="gFa-Go-35x" secondAttribute="bottom" constant="7" id="9sK-1O-fHE"/>
+                                                <constraint firstItem="ekL-6D-EC7" firstAttribute="leading" secondItem="gFa-Go-35x" secondAttribute="trailing" constant="25" id="AHk-La-m6e"/>
+                                                <constraint firstItem="GTO-zb-3uE" firstAttribute="leading" secondItem="NAR-LB-eyc" secondAttribute="trailing" constant="25" id="ClB-e8-l3O"/>
+                                                <constraint firstItem="4JC-fu-MK5" firstAttribute="top" secondItem="fkY-Wd-e8O" secondAttribute="bottom" constant="7" id="Khq-dR-Znc"/>
+                                                <constraint firstItem="Qa6-7z-COo" firstAttribute="leading" secondItem="GTO-zb-3uE" secondAttribute="trailing" constant="10" id="RHL-GI-t9A"/>
+                                                <constraint firstItem="fkY-Wd-e8O" firstAttribute="leading" secondItem="2gx-r3-Y9L" secondAttribute="leading" constant="10" id="SX4-Pw-js4"/>
+                                                <constraint firstItem="13j-Wh-sDo" firstAttribute="top" secondItem="ekL-6D-EC7" secondAttribute="top" id="VB7-mf-GZm"/>
+                                                <constraint firstItem="13j-Wh-sDo" firstAttribute="leading" secondItem="ekL-6D-EC7" secondAttribute="trailing" constant="10" id="YUs-oW-Wok"/>
+                                                <constraint firstAttribute="trailing" secondItem="13j-Wh-sDo" secondAttribute="trailing" constant="20" id="bDT-6f-7Jm"/>
+                                                <constraint firstItem="ekL-6D-EC7" firstAttribute="top" secondItem="2gx-r3-Y9L" secondAttribute="top" constant="10" id="lzZ-CJ-0b4"/>
+                                                <constraint firstItem="GTO-zb-3uE" firstAttribute="top" secondItem="ekL-6D-EC7" secondAttribute="bottom" constant="7" id="pEq-PV-me8"/>
+                                                <constraint firstItem="4JC-fu-MK5" firstAttribute="leading" secondItem="2gx-r3-Y9L" secondAttribute="leading" constant="10" id="tY5-dH-quN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tagsCoinCounter" destination="NAR-LB-eyc" id="uh5-Fq-rQi"/>
+                                            <outlet property="tagsIcoCounter" destination="Qa6-7z-COo" id="xyc-6q-NO7"/>
+                                            <outlet property="tagsId" destination="gFa-Go-35x" id="fxQ-c8-r88"/>
+                                            <outlet property="tagsName" destination="13j-Wh-sDo" id="7Qc-cC-f30"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlA-SE-wVp">
+                                <rect key="frame" x="174.5" y="59" width="65" height="38"/>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRc-Z8-UFM">
+                                <rect key="frame" x="20" y="117" width="64" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="voa-xd-Rbw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkk-JX-MVE">
+                                <rect key="frame" x="20" y="147" width="57" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="kaX-cP-OVL"/>
+                                    <constraint firstAttribute="height" constant="25" id="ova-aH-TeR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="description : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-ec-fqT">
+                                <rect key="frame" x="20" y="177" width="97.5" height="22"/>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44S-Nd-RsZ">
+                                <rect key="frame" x="20" y="204" width="374" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="BuP-10-8R6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdi-ms-Sha">
+                                <rect key="frame" x="99" y="117" width="300" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0bQ-Gz-eCs"/>
+                                    <constraint firstAttribute="width" constant="300" id="2X8-hP-uw5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTF-f7-PIR">
+                                <rect key="frame" x="92" y="147" width="302" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="DJs-cQ-43A"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="qfC-rA-Hfr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="team : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3r-rA-goi">
+                                <rect key="frame" x="20" y="640" width="374" height="22"/>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="tags : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc0-Ea-Uqa">
+                                <rect key="frame" x="20" y="418" width="374" height="22"/>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symbol : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-XM-jxu">
+                                <rect key="frame" x="20" y="319" width="69" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="CGI-WX-oM6"/>
+                                    <constraint firstAttribute="height" constant="25" id="cSf-Sp-jQQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-Tp-ihr">
+                                <rect key="frame" x="20" y="349" width="69" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="lnz-Ri-F1d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is_active : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txv-PD-4Qb">
+                                <rect key="frame" x="20" y="378" width="82" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0TU-6J-YSh"/>
+                                    <constraint firstAttribute="width" constant="82" id="M0M-7j-0C3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV8-Dj-lQp">
+                                <rect key="frame" x="94" y="319" width="300" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9ok-Hc-ncU"/>
+                                    <constraint firstAttribute="width" constant="300" id="ofL-Rr-2lL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3f-TI-lcY">
+                                <rect key="frame" x="94" y="349" width="300" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="DyY-FN-RRw"/>
+                                    <constraint firstAttribute="width" constant="300" id="X8B-MK-UDP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-uK-7Vg">
+                                <rect key="frame" x="114" y="378" width="280" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="4nz-jp-oVg"/>
+                                    <constraint firstAttribute="height" constant="25" id="f5V-bv-qqu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CIG-cU-tMx">
+                                <rect key="frame" x="20" y="682" width="374" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="TbL-v5-2EC"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinDetailTeamTableViewCell" rowHeight="88" id="9t6-RX-CVt" customClass="CoinDetailTeamTableViewCell" customModule="coin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9t6-RX-CVt" id="t0e-IC-347">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0R-C4-o3y">
+                                                    <rect key="frame" x="10" y="10" width="28" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="BDg-wS-eCj"/>
+                                                        <constraint firstAttribute="height" constant="25" id="t7A-ri-XC3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vov-Cr-aag">
+                                                    <rect key="frame" x="48" y="10" width="130" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="Au9-PT-PSK"/>
+                                                        <constraint firstAttribute="width" constant="130" id="JFd-aA-mxw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIn-Uw-jAE">
+                                                    <rect key="frame" x="94" y="42" width="260" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="260" id="PbJ-tE-O39"/>
+                                                        <constraint firstAttribute="height" constant="25" id="jC3-6i-a4O"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-zG-UUk">
+                                                    <rect key="frame" x="270" y="10" width="84" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="a8P-mQ-KBT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="position : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-ia-u0O">
+                                                    <rect key="frame" x="10" y="42" width="74" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="N0S-AJ-y7O"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps7-2Q-9ar">
+                                                    <rect key="frame" x="203" y="10" width="57" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="57" id="PCL-4s-iDL"/>
+                                                        <constraint firstAttribute="height" constant="25" id="c8P-w9-clP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA8-oH-DPi">
+                                                    <rect key="frame" x="354" y="42" width="0.0" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="xNy-Ll-RnX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KOTRA_GOTHIC" family="KOTRA_GOTHIC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jA8-oH-DPi" firstAttribute="baseline" secondItem="xIn-Uw-jAE" secondAttribute="baseline" id="2sB-1k-cmd"/>
+                                                <constraint firstItem="S0R-C4-o3y" firstAttribute="top" secondItem="t0e-IC-347" secondAttribute="top" constant="10" id="5Bo-wF-Dma"/>
+                                                <constraint firstAttribute="trailing" secondItem="qK8-zG-UUk" secondAttribute="trailing" constant="20" id="6H4-nb-khN"/>
+                                                <constraint firstItem="Ps7-2Q-9ar" firstAttribute="leading" secondItem="Vov-Cr-aag" secondAttribute="trailing" constant="25" id="8bQ-QB-Swf"/>
+                                                <constraint firstItem="Ps7-2Q-9ar" firstAttribute="top" secondItem="t0e-IC-347" secondAttribute="top" constant="10" id="8rE-0r-we4"/>
+                                                <constraint firstItem="Vov-Cr-aag" firstAttribute="leading" secondItem="S0R-C4-o3y" secondAttribute="trailing" constant="10" id="Cs5-SE-Fl8"/>
+                                                <constraint firstItem="xIn-Uw-jAE" firstAttribute="top" secondItem="Vov-Cr-aag" secondAttribute="bottom" constant="7" id="GMU-Qj-pAd"/>
+                                                <constraint firstItem="Vov-Cr-aag" firstAttribute="top" secondItem="S0R-C4-o3y" secondAttribute="top" id="LUY-xX-DxD"/>
+                                                <constraint firstItem="xIn-Uw-jAE" firstAttribute="leading" secondItem="Ccn-ia-u0O" secondAttribute="trailing" constant="10" id="OE1-dK-fB0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jA8-oH-DPi" secondAttribute="trailing" id="YhG-OU-TQ8"/>
+                                                <constraint firstItem="qK8-zG-UUk" firstAttribute="top" secondItem="Ps7-2Q-9ar" secondAttribute="top" id="cH5-wW-q5G"/>
+                                                <constraint firstItem="S0R-C4-o3y" firstAttribute="leading" secondItem="t0e-IC-347" secondAttribute="leading" constant="10" id="hcX-ue-JV5"/>
+                                                <constraint firstItem="Ccn-ia-u0O" firstAttribute="leading" secondItem="t0e-IC-347" secondAttribute="leading" constant="10" id="rb6-x1-Z2g"/>
+                                                <constraint firstItem="qK8-zG-UUk" firstAttribute="leading" secondItem="Ps7-2Q-9ar" secondAttribute="trailing" constant="10" id="ueE-U0-KK3"/>
+                                                <constraint firstItem="Ccn-ia-u0O" firstAttribute="top" secondItem="S0R-C4-o3y" secondAttribute="bottom" constant="7" id="uwl-b1-dF0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="teamId" destination="Vov-Cr-aag" id="k0r-UC-vRF"/>
+                                            <outlet property="teamName" destination="qK8-zG-UUk" id="0qJ-nD-BUo"/>
+                                            <outlet property="teamPositiom" destination="xIn-Uw-jAE" id="OKM-Mc-eII"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7i-fe-KCw">
+                                <rect key="frame" x="346" y="59" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="X0C-N2-Drq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ic_x"/>
+                                <connections>
+                                    <action selector="close:" destination="4hc-i2-pYW" eventType="touchUpInside" id="XD5-fa-lYZ"/>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6a9-ZK-C23"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZX-o8-Txi">
+                                <rect key="frame" x="15" y="59" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="pw5-E5-VCF"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ic_reload"/>
+                                <connections>
+                                    <action selector="reloadData:" destination="4hc-i2-pYW" eventType="touchUpInside" id="7JD-bh-yO9"/>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q4b-Bb-axF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uCJ-cc-EPc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zzb-uK-7Vg" firstAttribute="leading" secondItem="Txv-PD-4Qb" secondAttribute="trailing" constant="12" id="1co-QP-wdp"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="CIG-cU-tMx" secondAttribute="trailing" constant="20" id="2k3-qk-9Mg"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="UV8-Dj-lQp" secondAttribute="trailing" constant="20" id="3D2-Qg-Ltk"/>
+                            <constraint firstItem="Txv-PD-4Qb" firstAttribute="top" secondItem="dOu-Tp-ihr" secondAttribute="bottom" constant="4" id="3W9-yi-WVQ"/>
+                            <constraint firstItem="fc0-Ea-Uqa" firstAttribute="top" secondItem="Txv-PD-4Qb" secondAttribute="bottom" constant="15" id="4Aj-tW-HEb"/>
+                            <constraint firstItem="UV8-Dj-lQp" firstAttribute="top" secondItem="mYL-XM-jxu" secondAttribute="top" id="55V-zg-tOu"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="T7i-fe-KCw" secondAttribute="trailing" constant="20" id="5S8-3h-dS4"/>
+                            <constraint firstItem="QZX-o8-Txi" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="15" id="66T-7d-P4w"/>
+                            <constraint firstItem="dOu-Tp-ihr" firstAttribute="top" secondItem="mYL-XM-jxu" secondAttribute="bottom" constant="5" id="6FR-ba-CsD"/>
+                            <constraint firstItem="iVB-wD-pSC" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="15" id="6jm-EP-ru9"/>
+                            <constraint firstItem="dOu-Tp-ihr" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="9Lh-kn-eQI"/>
+                            <constraint firstItem="T7i-fe-KCw" firstAttribute="width" secondItem="T7i-fe-KCw" secondAttribute="height" multiplier="1:1" id="9Xa-Xd-tAp"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gXs-ec-fqT" secondAttribute="trailing" symbolic="YES" id="B8P-dY-YEh"/>
+                            <constraint firstAttribute="trailing" secondItem="iVB-wD-pSC" secondAttribute="trailing" constant="15" id="DAC-QY-6DI"/>
+                            <constraint firstItem="Fkk-JX-MVE" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="DYa-9w-6LE"/>
+                            <constraint firstItem="iVB-wD-pSC" firstAttribute="top" secondItem="fc0-Ea-Uqa" secondAttribute="bottom" constant="10" id="E4M-cx-y1q"/>
+                            <constraint firstItem="vdi-ms-Sha" firstAttribute="leading" secondItem="bRc-Z8-UFM" secondAttribute="trailing" constant="15" id="Eys-Zs-yX8"/>
+                            <constraint firstItem="UV8-Dj-lQp" firstAttribute="leading" secondItem="mYL-XM-jxu" secondAttribute="trailing" constant="5" id="GUt-WC-rRP"/>
+                            <constraint firstItem="MTF-f7-PIR" firstAttribute="top" secondItem="Fkk-JX-MVE" secondAttribute="top" id="I4F-3C-fE9"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="fc0-Ea-Uqa" secondAttribute="trailing" constant="20" id="Kq3-he-gvF"/>
+                            <constraint firstItem="UV8-Dj-lQp" firstAttribute="top" secondItem="mYL-XM-jxu" secondAttribute="top" id="L97-UR-V5f"/>
+                            <constraint firstItem="CIG-cU-tMx" firstAttribute="bottom" secondItem="uCJ-cc-EPc" secondAttribute="bottom" id="LFV-Wy-saD"/>
+                            <constraint firstItem="vdi-ms-Sha" firstAttribute="top" secondItem="hlA-SE-wVp" secondAttribute="bottom" constant="20" id="Mn0-l9-ugW"/>
+                            <constraint firstItem="CIG-cU-tMx" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="NFj-11-tYs"/>
+                            <constraint firstItem="T3r-rA-goi" firstAttribute="top" secondItem="iVB-wD-pSC" secondAttribute="bottom" constant="10" id="NSP-He-xFf"/>
+                            <constraint firstItem="44S-Nd-RsZ" firstAttribute="top" secondItem="gXs-ec-fqT" secondAttribute="bottom" constant="5" id="QnE-7K-iej"/>
+                            <constraint firstItem="QZX-o8-Txi" firstAttribute="width" secondItem="QZX-o8-Txi" secondAttribute="height" multiplier="1:1" id="SVv-gG-9DP"/>
+                            <constraint firstItem="Fkk-JX-MVE" firstAttribute="top" secondItem="bRc-Z8-UFM" secondAttribute="bottom" constant="5" id="VRT-k1-wbh"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="Y3f-TI-lcY" secondAttribute="trailing" constant="20" id="YJk-Ke-gVL"/>
+                            <constraint firstItem="MTF-f7-PIR" firstAttribute="leading" secondItem="Fkk-JX-MVE" secondAttribute="trailing" constant="15" id="Yxz-xg-q70"/>
+                            <constraint firstItem="hlA-SE-wVp" firstAttribute="top" secondItem="uCJ-cc-EPc" secondAttribute="top" constant="15" id="ZB1-bj-59o"/>
+                            <constraint firstItem="fc0-Ea-Uqa" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="ZhH-w7-1MD"/>
+                            <constraint firstItem="Y3f-TI-lcY" firstAttribute="top" secondItem="dOu-Tp-ihr" secondAttribute="top" id="adU-jI-vZU"/>
+                            <constraint firstItem="T7i-fe-KCw" firstAttribute="top" secondItem="hlA-SE-wVp" secondAttribute="top" id="c2y-0L-g2e"/>
+                            <constraint firstItem="CIG-cU-tMx" firstAttribute="top" secondItem="T3r-rA-goi" secondAttribute="bottom" constant="20" id="eVO-bl-wpO"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="Zzb-uK-7Vg" secondAttribute="trailing" constant="20" id="fq3-Xu-pSB"/>
+                            <constraint firstItem="bRc-Z8-UFM" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="hEM-WB-C3c"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="44S-Nd-RsZ" secondAttribute="trailing" constant="20" id="hLd-nm-lQO"/>
+                            <constraint firstItem="Y3f-TI-lcY" firstAttribute="leading" secondItem="dOu-Tp-ihr" secondAttribute="trailing" constant="5" id="j8z-bV-LM1"/>
+                            <constraint firstItem="hlA-SE-wVp" firstAttribute="centerX" secondItem="EoH-Hn-ZrH" secondAttribute="centerX" id="jNf-bS-JwY"/>
+                            <constraint firstItem="mYL-XM-jxu" firstAttribute="top" secondItem="44S-Nd-RsZ" secondAttribute="bottom" constant="5" id="jTP-SG-mc3"/>
+                            <constraint firstItem="gXs-ec-fqT" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="mdK-ey-xlk"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="T3r-rA-goi" secondAttribute="trailing" constant="20" id="o8a-bx-LgA"/>
+                            <constraint firstItem="44S-Nd-RsZ" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="oZ5-Ux-Xph"/>
+                            <constraint firstItem="Txv-PD-4Qb" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="qof-dj-iCk"/>
+                            <constraint firstItem="gXs-ec-fqT" firstAttribute="top" secondItem="Fkk-JX-MVE" secondAttribute="bottom" constant="5" id="rBu-Kd-TCS"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="MTF-f7-PIR" secondAttribute="trailing" constant="20" id="rli-bI-D8N"/>
+                            <constraint firstItem="mYL-XM-jxu" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="ueG-41-emv"/>
+                            <constraint firstItem="bRc-Z8-UFM" firstAttribute="top" secondItem="QZX-o8-Txi" secondAttribute="bottom" constant="10" id="ulC-ka-TmC"/>
+                            <constraint firstItem="T3r-rA-goi" firstAttribute="leading" secondItem="uCJ-cc-EPc" secondAttribute="leading" constant="20" id="wDR-bw-HYh"/>
+                            <constraint firstItem="Zzb-uK-7Vg" firstAttribute="top" secondItem="Txv-PD-4Qb" secondAttribute="top" id="wgz-Ba-7ij"/>
+                            <constraint firstItem="vdi-ms-Sha" firstAttribute="top" secondItem="bRc-Z8-UFM" secondAttribute="top" id="zAH-n9-JlR"/>
+                            <constraint firstItem="uCJ-cc-EPc" firstAttribute="trailing" secondItem="vdi-ms-Sha" secondAttribute="trailing" constant="15" id="zOJ-eN-0j4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coinActive" destination="Zzb-uK-7Vg" id="fNw-ak-qh4"/>
+                        <outlet property="coinDescription" destination="44S-Nd-RsZ" id="nmv-0X-IGR"/>
+                        <outlet property="coinId" destination="vdi-ms-Sha" id="Ag8-Zd-Cyh"/>
+                        <outlet property="coinName" destination="MTF-f7-PIR" id="Rh7-YR-yCB"/>
+                        <outlet property="coinRank" destination="Y3f-TI-lcY" id="Clt-d0-rAE"/>
+                        <outlet property="coinSymbol" destination="UV8-Dj-lQp" id="oiu-Qq-yp9"/>
+                        <outlet property="coinTagsTableView" destination="iVB-wD-pSC" id="YEP-Il-LRh"/>
+                        <outlet property="coinTeamTableView" destination="CIG-cU-tMx" id="jWq-5j-BHO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KD7-zI-FFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873.91304347826099" y="138.61607142857142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_active" width="24" height="24"/>
-        <image name="ic_collection_menu" width="24" height="24"/>
         <image name="ic_new" width="24" height="24"/>
         <image name="ic_reload" width="32" height="32"/>
+        <image name="ic_x" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

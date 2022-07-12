@@ -21,12 +21,12 @@ class CoinListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.requestCoinData()
         lottieInit()
         btnBorderInit()
         initalize()
         coinListTableView.delegate = self
         coinListTableView.dataSource = self
+        model.requestCoinData()
     }
     
     func btnBorderInit() {
@@ -110,5 +110,17 @@ extension CoinListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.model.settingCoinCategory(indexPath: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CoinDetailVC") as? CoinDetailVC {
+            vc.selectedIndex = indexPath.row
+            
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }
