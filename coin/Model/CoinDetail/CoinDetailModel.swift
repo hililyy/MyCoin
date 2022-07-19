@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
 
 class CoinDetailModel {
     static let model = CoinDetailModel()
-    var coinDetailData: CoinDetailEntity!
+    var coinDetailData = CoinDetailEntity()
     var repository = CoinDetailRepository()
     var selectedIndex: Int?
+    
 }
 extension CoinDetailModel: CoinDetailApiRequest {
     func requestCoinDetailData(selectedIndex: Int) {

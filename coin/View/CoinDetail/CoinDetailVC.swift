@@ -22,16 +22,16 @@ class CoinDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.requestCoinDetailData(selectedIndex: selectedIndex ?? 0)
         self.coinTagsTableView.dataSource = self
         self.coinTagsTableView.delegate = self
         self.coinTeamTableView.dataSource = self
         self.coinTeamTableView.delegate = self
+        model.requestCoinDetailData(selectedIndex: selectedIndex ?? 0)
     }
     
     @IBAction func reloadData(_ sender: Any) {
         model.reciveCoinDetailData()
-        self.loadView()
+        super.loadView()
     }
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true)
@@ -41,7 +41,7 @@ class CoinDetailVC: UIViewController {
 extension CoinDetailVC:UITableViewDelegate,  UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ((model.getCoinDetailData().id?.isEmpty) != nil) {
+        if ((model.getCoinDetailData().id.isEmpty) != nil) {
             return 0
         } else {
             if tableView == coinTagsTableView {
@@ -57,7 +57,7 @@ extension CoinDetailVC:UITableViewDelegate,  UITableViewDataSource {
         if tableView == coinTagsTableView {
             let cell = coinTagsTableView.dequeueReusableCell(withIdentifier: "CoinDetailTagsTableViewCell", for: indexPath) as! CoinDetailTagsTableViewCell
             
-            guard let coinCounter = model.getCoinDetailData().tags?[indexPath.row].coun_counter else {return cell}
+            guard let coinCounter = model.getCoinDetailData().tags?[indexPath.row].coin_counter else {return cell}
             guard let icoCounter = model.getCoinDetailData().tags?[indexPath.row].ico_counter else {return cell}
             
             cell.tagsId.text = model.getCoinDetailData().tags?[indexPath.row].id

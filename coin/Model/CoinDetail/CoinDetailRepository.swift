@@ -10,7 +10,7 @@ import Alamofire
 
 class CoinDetailRepository: CoinDetailRepo {
     
-    var repoData: CoinDetailEntity!
+    var repoData: CoinDetailEntity?
     
     func apiRequest(selectedIndex: Int) {
         let URL = "\(getUrl())\(ApiPath.coin_list.rawValue)\(selectedIndex+1)"

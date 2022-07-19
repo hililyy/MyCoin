@@ -8,60 +8,69 @@
 import Foundation
 // -> 리스트는 리스트로 받기
 struct CoinDetailEntity: Codable {
-    let id: String?
-    let name: String?
-    let symbol: String?
-    let rank: Int?
-    let is_new: Bool?
-    let is_active: Bool?
-    let type: String?
-    let tags: [Tags]?
-    let team: [Team]?
-    let description: String?
-    let message: String?
-    let open_source: Bool?
-    let started_at: String?
-    let development_status: String?
-    let hardware_wallet: Bool?
-    let proof_type: String?
-    let org_structure: String?
-    let hash_algorithm: String?
-    let links: Links?
-    let links_extended: [LinksExtended]?
-    let whitepaper: [WhitePapaer]?
-    let first_data_at: String?
-    let last_data_at: String?
+    var id: String = ""
+    var name: String = ""
+    var symbol: String = ""
+    var rank: Int64 = 0
+    var is_new: Bool = false
+    var is_active: Bool = false
+    var type: String = ""
+    var tags: [Tags]?
+    var team: [Team]?
+    var description: String = ""
+    var message: String = ""
+    var open_source: Bool = false
+    var started_at: String = ""
+    var development_status: String = ""
+    var hardware_wallet: Bool = false
+    var proof_type: String = ""
+    var org_structure: String = ""
+    var hash_algorithm: String = ""
+    var links: Links?
+    var links_extended: [LinksExtended] = [] //요거
+    var whitepaper: WhitePapaer?
+    var first_data_at: String = ""
+    var last_data_at: String = ""
 }
 
 struct Tags: Codable {
-    let id: String?
-    let name: String?
-    let coun_counter: Int?
-    let ico_counter: Int?
+    var id: String = ""
+    var name: String = ""
+    var coin_counter: Int = 0
+    var ico_counter: Int = 0
 }
 
 struct Team: Codable {
-    let id: String?
-    let name: String?
-    let position: String?
+    var id: String = ""
+    var name: String = ""
+    var position: String = ""
 }
 
 struct Links: Codable {
-    let explorer: [String]?
-    let facebook: [String]?
-    let reddit: [String]?
-    let source_code: [String]?
-    let website: [String]?
-    let youtube: [String]?
+    var explorer: [String] = []
+    var facebook: [String] = []
+    var reddit: [String] = []
+    var source_code: [String] = []
+    var website: [String] = []
+    var youtube: [String] = []
 }
 
 struct LinksExtended: Codable {
-    let url: String?
-    let type: String?
+    var url: String = ""
+    var type: String = ""
+    var stats: Stats? //요거
+    
+}
+
+struct Stats: Codable {
+    var subscribers: Int?
+    var contributors: Int? //요거
+    var stars: Int?
+    var followers: Int?
 }
 
 struct WhitePapaer: Codable {
-    let link: String?
-    let thumbnail: String?
+    var link: String = ""
+    var thumbnail: String = ""
 }
 

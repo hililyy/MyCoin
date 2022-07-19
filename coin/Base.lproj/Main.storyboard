@@ -615,8 +615,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ic_reload"/>
                                 <connections>
-                                    <action selector="reloadData:" destination="4hc-i2-pYW" eventType="touchUpInside" id="7JD-bh-yO9"/>
-                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q4b-Bb-axF"/>
+                                    <action selector="reloadData:" destination="4hc-i2-pYW" eventType="touchUpInside" id="Nxr-fJ-Z0B"/>
                                 </connections>
                             </button>
                         </subviews>

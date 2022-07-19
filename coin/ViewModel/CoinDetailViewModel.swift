@@ -13,7 +13,8 @@ class CoinDetailViewModel {
     var selectedIndex: Int?
     
     func getCoinDetailData() -> CoinDetailEntity {
-        return model.coinDetailData!
+        print( model.coinDetailData)
+        return model.coinDetailData
     }
     
 }
