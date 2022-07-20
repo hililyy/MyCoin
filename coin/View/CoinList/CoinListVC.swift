@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import RxSwift
 
 class CoinListVC: UIViewController {
     
@@ -52,6 +53,12 @@ class CoinListVC: UIViewController {
         animationView.animationSpeed = 0.7
         animationView.play()
         animationView.loopMode = .loop
+    }
+    
+    func rxSwiftDataLoad() -> Observable<CoinListEntity> {
+        return Observable.create {
+            
+        }
     }
     
     @IBAction func reloadData(_ sender: UIButton) {

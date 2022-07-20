@@ -5,19 +5,20 @@
 //  Created by 강조은 on 2022/06/28.
 //
 
-import Foundation
 import RxSwift
 import SwiftyJSON
 import Alamofire
 import RxAlamofire
 import RxCocoa
+import Foundation
+import UIKit
 
 let disposeBag = DisposeBag()
 
 class CoinListRepository: CoinListRepo {
-    let URL = "\(getUrl())\(ApiPath.coin_list.rawValue)"
+    let url = "\(getUrl())\(ApiPath.coin_list.rawValue)"
     var repoData: [CoinListEntity] = []
-    var pRepoData = PublishSubject<[CoinListEntity]>()
+    var pRepoData = [CoinListEntity] = []
     
     func apiRequest() {
         AF.request(URL, method: .get).responseJSON() { response in
@@ -37,6 +38,46 @@ class CoinListRepository: CoinListRepo {
         }.resume()
     }
 
+    func apiRequset() {
+        Observable.just(url)
+            .map{ URL(string: $0)! }
+            .map{ url -> URLRequest in
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                return request
+            }
+            .flatMap{ request -> Observable<(response: HTTPURLResponse, data: Data) > in
+                return URLSession.shared.rx.response(request: request)}
+            .filter { responds, _ in
+                return 200..<300 ~= responds.statusCode
+            }
+            .map{ _, data -> [[String: Any]] in
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
+                      let result = json as? [[String: Any]] else {
+                    return []
+                }
+                return result
+            }
+            .filter{ result in
+                return result.count > 0}
+            .map { objects in
+                return objects.compactMap { dic -> CoinListEntity? in
+                    guard let id = dic["id"] as? String,
+                          let name = dic["name"] as? String,
+                          let symbol = dic["symbol"] as? String,
+                          let rank = dic["rank"] as? Int,
+                          let is_new = dic["is_new"] as? Bool,
+                          let is_active = dic["is_active"] as? Bool,
+                          let type = dic["type"] as? String else {
+                        return nil
+                    }
+                    return CoinListEntity(id:id, name:name, symbol:symbol,rank:rank,is_new:is_new,is_active:is_active,type:type )
+            }}
+            .subscribe(onNext: { [weak self] newRepositories in
+                self?.pRepoData.onNext(newRepositories)
+            })
+                
+    }
 //    func apiRequest() -> Single<[CoinListEntity]> {
 //        return RxAlamofire.request(
 //                           .get,
@@ -63,34 +104,6 @@ class CoinListRepository: CoinListRepo {
 //                throw ErrorCase.UNKOWN
 //            }
 //        }
-//    }
-    
-//        func apiRequest() {
-//            requestJSON(.get, baseURL)
-//                .map { response -> [CoinListEntity] in
-//                    let data = try JSONSerialization.data(withJSONObject: response, options: .prettyPrinted)
-//                    let coinListData = try JSONDecoder().decode(CoinResult.self, from: data)
-//                    return coinListData.items
-//                }.subscribe(onNext: {
-//                    result in self.repoData = result
-//                })
-//                .disposed(by: disposeBag)
-//
-//            print(repoData)
-//        }
-    
-//    func apiRequest() {
-//        Observable.just(URL)
-//            .map {
-//                urlString -> URL in
-//                return URL(string: URL)!
-//            }
-//            .map {
-//                url -> URLRequest in
-//                var request = URLRequest(url: url)
-//                request.httpMethod = "GET"
-//                return request
-//            }
 //    }
     
     func getResultCodeFromApi(json: JSON) -> Int {

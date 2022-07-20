@@ -6,7 +6,7 @@
 //
 
 import Foundation
-// -> 리스트는 리스트로 받기
+
 struct CoinDetailEntity: Codable {
     var id: String = ""
     var name: String = ""
@@ -58,13 +58,12 @@ struct Links: Codable {
 struct LinksExtended: Codable {
     var url: String = ""
     var type: String = ""
-    var stats: Stats? //요거
-    
+    var stats: Stats?
 }
 
 struct Stats: Codable {
     var subscribers: Int?
-    var contributors: Int? //요거
+    var contributors: Int? 
     var stars: Int?
     var followers: Int?
 }
